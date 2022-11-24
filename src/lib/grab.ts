@@ -1,19 +1,17 @@
-/* eslint-disable */
-
 /** query: DOM */
-export default (query: string = ".AD-item") => {
+export default (query = ".AD-item") => {
   const MAP = document.querySelector(query) as HTMLDivElement;
   const _CANVAS = document.querySelector("#canvas");
-  if (!MAP || !_CANVAS) throw new Error("NO AD!.");
+  if (!MAP || !_CANVAS) throw new Error("MOVE ITEM ERROR");
 
   const CANVAS = _CANVAS.getBoundingClientRect();
 
   let offset = [0, 0];
   let isDown = false;
 
-  MAP.addEventListener("mousedown", handleMouseStart, true);
-  document.addEventListener("mousemove", handleMouseMove, true);
-  document.addEventListener("mouseup", handleEnd, true);
+  MAP.addEventListener("mousedown", handleMouseStart);
+  MAP.addEventListener("mousemove", handleMouseMove);
+  MAP.addEventListener("mouseup", handleEnd);
 
   // onBeforeUnmount(() => {
   //   MAP.removeEventListener("mousedown", handleMouseStart, true);
