@@ -46,7 +46,7 @@ export default (query: string = ".AD-item") => {
 
   /** 計算圖片位置的同時，也把圖片邊界考慮在內 */
   function computedPosition(mousePosition: { x: number; y: number }) {
-    /** 取得物件的目前尺寸 */
+    /** 取得物件的資訊 */
     const RECT = MAP.getBoundingClientRect();
 
     let position_x = 0;
