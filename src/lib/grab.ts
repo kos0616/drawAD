@@ -13,7 +13,7 @@ export default (query = ".AD-item") => {
   /** 滑鼠起始位置y */
   let pos4 = 0;
 
-  elmnt.onmousedown = dragMouseDown;
+  elmnt.addEventListener("mousedown", dragMouseDown);
 
   function dragMouseDown(e: MouseEvent) {
     e = e || window.event;
@@ -21,9 +21,9 @@ export default (query = ".AD-item") => {
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
-    elmnt.onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
-    elmnt.onmousemove = elementDrag;
+    elmnt.addEventListener("mouseup", closeDragElement);
+    elmnt.addEventListener("mousemove", elementDrag);
   }
 
   function elementDrag(e: MouseEvent) {
@@ -74,7 +74,7 @@ export default (query = ".AD-item") => {
 
   function closeDragElement() {
     /* stop moving when mouse button is released:*/
-    elmnt.onmouseup = null;
-    elmnt.onmousemove = null;
+    elmnt.removeEventListener("onmouseup", closeDragElement);
+    elmnt.removeEventListener("mousemove", elementDrag);
   }
 };
