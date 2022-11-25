@@ -13,9 +13,9 @@ export default (query = ".AD-item") => {
     startX = e.clientX;
     startY = e.clientY;
 
-    const Rect = DOM.getBoundingClientRect();
-    startWidth = Rect.width;
-    startHeight = Rect.height;
+    const rect = DOM.getBoundingClientRect();
+    startWidth = rect.width;
+    startHeight = rect.height;
 
     document.addEventListener("mousemove", doDrag);
     document.addEventListener("mouseup", stopDrag);
@@ -26,10 +26,14 @@ export default (query = ".AD-item") => {
     const CANVAS = _CANVAS.getBoundingClientRect();
 
     let width = startWidth + e.clientX - startX;
-    if (width > CANVAS.width) width = CANVAS.width;
+    if (width <= 100) width = 100;
+    if (width > CANVAS.width - DOM.offsetLeft)
+      width = CANVAS.width - DOM.offsetLeft;
 
     let height = startHeight + e.clientY - startY;
-    if (height > CANVAS.height) height = CANVAS.height;
+    if (height <= 100) height = 100;
+    if (height > CANVAS.height - DOM.offsetTop)
+      height = CANVAS.height - DOM.offsetTop;
 
     DOM.style.width = width + "px";
     DOM.style.height = height + "px";
