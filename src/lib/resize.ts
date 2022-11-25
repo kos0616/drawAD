@@ -17,8 +17,8 @@ export default (query = ".AD-item") => {
     startWidth = Rect.width;
     startHeight = Rect.height;
 
-    RESIZER.addEventListener("mousemove", doDrag);
-    RESIZER.addEventListener("mouseup", stopDrag);
+    document.addEventListener("mousemove", doDrag);
+    document.addEventListener("mouseup", stopDrag);
   }
 
   function doDrag(e: MouseEvent) {
@@ -37,7 +37,7 @@ export default (query = ".AD-item") => {
 
   function stopDrag(e: MouseEvent) {
     e.stopPropagation();
-    RESIZER.removeEventListener("mousemove", doDrag, false);
-    RESIZER.removeEventListener("mouseup", stopDrag, false);
+    document.removeEventListener("mousemove", doDrag, false);
+    document.removeEventListener("mouseup", stopDrag, false);
   }
 };

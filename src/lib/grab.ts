@@ -20,8 +20,8 @@ export default (query = ".AD-item") => {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // call a function whenever the cursor moves:
-    elmnt.addEventListener("mouseup", closeDragElement);
-    elmnt.addEventListener("mousemove", elementDrag);
+    document.addEventListener("mouseup", closeDragElement);
+    document.addEventListener("mousemove", elementDrag);
   }
 
   function elementDrag(e: MouseEvent) {
@@ -70,7 +70,7 @@ export default (query = ".AD-item") => {
 
   function closeDragElement() {
     /* stop moving when mouse button is released:*/
-    elmnt.removeEventListener("onmouseup", closeDragElement);
-    elmnt.removeEventListener("mousemove", elementDrag);
+    document.removeEventListener("onmouseup", closeDragElement);
+    document.removeEventListener("mousemove", elementDrag);
   }
 };
