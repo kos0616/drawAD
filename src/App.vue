@@ -4,10 +4,8 @@
     class="relative w-96 mx-auto h-96 border-blue-400 border mt-5"
   >
     <div class="AD-item absolute" style="width: 160px; height: 100px">
-      <div class="relative h-full w-full bg-slate-400">
-        <div
-          class="resizer absolute right-0 bottom-0 w-6 h-6 bg-blue-300 cursor-nwse-resize"
-        ></div>
+      <div class="relative h-full w-full">
+        <div class="resizer absolute -right-4 -bottom-4 w-3 h-3"></div>
       </div>
     </div>
   </div>
@@ -40,3 +38,12 @@ export default {
   },
 };
 </script>
+
+<style lang="postcss" scoped>
+.AD-item {
+  @apply border border-slate-400 bg-gray-100 cursor-move;
+}
+.resizer {
+  @apply border border-gray-400 cursor-nwse-resize;
+}
+</style>
