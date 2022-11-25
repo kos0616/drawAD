@@ -9,6 +9,7 @@ export default (query = ".AD-item") => {
   let startX: number, startY: number, startWidth: number, startHeight: number;
 
   function initDrag(e: MouseEvent) {
+    e.stopPropagation();
     startX = e.clientX;
     startY = e.clientY;
 

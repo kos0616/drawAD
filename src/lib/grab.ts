@@ -16,8 +16,6 @@ export default (query = ".AD-item") => {
   elmnt.addEventListener("mousedown", dragMouseDown);
 
   function dragMouseDown(e: MouseEvent) {
-    e = e || window.event;
-    e.preventDefault();
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -27,8 +25,6 @@ export default (query = ".AD-item") => {
   }
 
   function elementDrag(e: MouseEvent) {
-    e = e || window.event;
-    e.preventDefault();
     const rect = elmnt.getBoundingClientRect();
 
     // set the element's new position:
